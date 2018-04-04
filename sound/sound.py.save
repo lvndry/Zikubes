@@ -1,0 +1,8 @@
+from subprocess import call
+import random
+
+lead=["Do","Mib","Fa","Sol","Sib","Do2"]
+
+for i in range(0,2):
+	)
+	

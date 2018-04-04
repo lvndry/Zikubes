@@ -1,11 +1,9 @@
-from playsound import playsound
+from subprocess import call
 import random
 
-lead=['Do','Mib','Fa','Sol','Sib','Do2']
-drum=['Kick','Snare']
+lead=["Do","Mib","Fa","Sol","Sib","Do2"]
+drum=["Kick","Snare"]
 
-playsound(str(random.choice(lead)) + '.wav')
-playsound(str(random.choice(lead)) + '.wav')
-playsound(str(random.choice(lead)) + '.wav')
-playsound(str(random.choice(drum)) + '.wav')
-playsound(str(random.choice(drum)) + '.wav')
+for i in range(0,3):
+	call(["omxplayer",random.choice(lead)+".wav"])
+	call(["omxplayer",random.choice(drum)+".wav"])
