@@ -19,7 +19,7 @@ def play(sound):
 		pass
 
 	else:
-		print "invalid option"
+		print("invalid option")
 		return False
 
 	if __exists(sound) :
@@ -27,7 +27,7 @@ def play(sound):
 		return True
 
 	else:
-		print "can't find "+sound+s_type
+		print ("can't find "+sound+s_type)
 		return False
 
 ###########################################################
