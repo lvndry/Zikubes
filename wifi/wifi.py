@@ -1,0 +1,3 @@
+from wifi import *
+
+scan()

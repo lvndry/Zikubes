@@ -1,34 +1,44 @@
 from guizero import App, Text, Slider, Box
 import time
 
-volume1 = 0
-volume2 = 0
-cubes = 0
+volume1 = 100
+volume2 = 100
+master = 100
+bg_color = "#eeeeee"
 
-def change_volume1(slider_value):
-    volume1 = slider_value
-    volume1_text.value = slider_value
+def change_volume1():
+    volume1 = volume1_text.value = int(float(volume1_slider.value)*float(master_slider.value)/100)
 
-def change_volume2(slider_value):
-    volume2 = slider_value
-    volume2_text.value = slider_value
+def change_volume2():
+    volume2 = volume2_text.value = int(float(volume2_slider.value)*float(master_slider.value)/100)
 
-def change_master(slider_value):
-    volume1 = volume2 = slider_value
-    volume1_text.value = volume2_text.value = slider_value
+def change_master():
+    change_volume1()
+    change_volume2()
+    master = master_text.value = master_slider.value
 
-app = App(title="Zikubes", bg="brown", height=480, width=800)
+app = App(title="Zikubes", bg=bg_color, height=480, width=800)
 
-welcome_message = Text(app, text="Welcome to Zikubes", size=40, color="lightblue", bg="brown")
-
-volume1_text = Text(app, text=volume1, size=30, color="green", bg="brown")
-volume2_text = Text(app, text=volume2, size=30, color="red", bg="brown")
+welcome_message = Text(app, text="Welcome to Zikubes", size=40, color="#4499ff")
 
 box_slider = Box(app, layout="grid")
 
-volume1_slider = Slider(box_slider, horizontal=False, command=change_volume1, start=100, end=0, grid=[0,0])
-volume2_slider = Slider(box_slider, horizontal=False, command=change_volume2, start=100, end=0, grid=[2,0])
-master_slider = Slider(box_slider, horizontal=False, command=change_master, start=100, end=0, grid=[4,0])
-volume1_slider.text_size = volume2_slider.text_size = master_slider.text_size = 1
+volume1_text = Text(box_slider, text=volume1, size=30, color="#44dd44", grid=[0,0])
+volume2_text = Text(box_slider, text=volume2, size=30, color="red", grid=[1,0])
+master_text = Text(box_slider, text=volume2, size=30, color="#dd00dd", grid=[2,0])
 
-app.display()
+volume1_slider = Slider(box_slider, horizontal=False, command=change_volume1, start=100, end=0, grid=[0,1])
+volume2_slider = Slider(box_slider, horizontal=False, command=change_volume2, start=100, end=0, grid=[1,1])
+master_slider = Slider(box_slider, horizontal=False, command=change_master, start=100, end=0, grid=[2,1])
+
+Text(box_slider, text="---", size=100, color=bg_color, grid=[0,2])
+Text(box_slider, text="---", size=100, color=bg_color, grid=[1,2])
+Text(box_slider, text="---", size=100, color=bg_color, grid=[2,2])
+
+box_slider.width=500
+volume1_slider.text_size = volume2_slider.text_size = master_slider.text_size = 1
+volume1_slider.text_color = volume2_slider.text_color = master_slider.text_color = bg_color
+volume1_slider.width = volume2_slider.width = master_slider.width = 220
+volume1_slider.height = volume2_slider.height = master_slider.height = 30
+
+master_slider.value = volume1_slider.value = volume2_slider.value = 100
