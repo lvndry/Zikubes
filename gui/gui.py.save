@@ -31,13 +31,14 @@ volume1_slider = Slider(box_slider, horizontal=False, command=change_volume1, st
 volume2_slider = Slider(box_slider, horizontal=False, command=change_volume2, start=100, end=0, grid=[1,1])
 master_slider = Slider(box_slider, horizontal=False, command=change_master, start=100, end=0, grid=[2,1])
 
-Text(box_slider, text="---", size=100, color=bg_color, bg=bg_color, grid=[0,2])
-Text(box_slider, text="---", size=100, color=bg_color, bg=bg_color, grid=[1,2])
-Text(box_slider, text="---", size=100, color=bg_color, bg=bg_color, grid=[2,2])
+Text(box_slider, text="---", size=100, color=bg_color, grid=[0,2])
+Text(box_slider, text="---", size=100, color=bg_color, grid=[1,2])
+Text(box_slider, text="---", size=100, color=bg_color, grid=[2,2])
 
 box_slider.width=500
 volume1_slider.text_size = volume2_slider.text_size = master_slider.text_size = 1
-volume1_slider.text_color = volume2_slider.text_color = master_slider.text_color = master_slider.bg = volume1_slider.bg = volume2_slider.bg = box_slider.bg = bg_color
+volume1_slider.text_color = volume2_slider.text_color = master_slider.text_color = bg_color
+volume1_slider.text_color = volume2_slider.bg = master_slider.bg = bg_color
 volume1_slider.width = volume2_slider.width = master_slider.width = 220
 volume1_slider.height = volume2_slider.height = master_slider.height = 30
 
