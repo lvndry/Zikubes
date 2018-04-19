@@ -42,3 +42,5 @@ volume1_slider.width = volume2_slider.width = master_slider.width = 220
 volume1_slider.height = volume2_slider.height = master_slider.height = 30
 
 master_slider.value = volume1_slider.value = volume2_slider.value = 100
+
+app.display()

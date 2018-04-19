@@ -52,3 +52,17 @@ def __valideVol(vol):
 			return True
 
 	return False
+
+###################################################################
+
+
+f=open("./result.txt","rb")
+for data in f:
+	pass
+
+data=str(data)[2:-2]
+data=data.split(':')
+data[2]=data[2].replace("\\","")
+print("data: ",data)
+
+play(data[1],int(data[2]))
