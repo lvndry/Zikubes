@@ -1,6 +1,7 @@
 from subprocess import call
 import random,os,math
 
+call(["omxplayer","-o","local"])
 ##########################################################
 
 lead=["Do","Mib","Fa","Sol","Sib","Do2"]
@@ -11,10 +12,10 @@ s_type=".wav"
 
 ###########################################################
 
-def play(sound,vol):
+def play(sound,vol=100):
 	if type(sound) == list :
 		sound = random.choice(sound)
-	
+
 	elif type(sound) == str :
 		pass
 
@@ -23,15 +24,15 @@ def play(sound,vol):
 		return False
 
 
-	if __exists(sound) and __valiodeVol(vol) :
-		call(["omxplayer","--vol",2000 * math.log10(vol/100.0),path+sound+s_type])
+	if __exists(sound) and __valideVol(vol) :
+		call(["omxplayer","--vol",str(int(2000 * math.log10(vol/100.0))),path+sound+s_type])
 		return True
 
 	else:
-		if __valiodeVol(vol) :
-			print ("invalid volume")
-		else:
+		if __valideVol(vol) :
 			print ("can't find "+sound+s_type)
+		else:
+			print ("invalid volume")
 		return False
 
 ###########################################################
@@ -46,7 +47,7 @@ def __exists(sound):
 	return False
 
 
-def __valiodeVol(vol):
+def __valideVol(vol):
 	if type(vol) == int and vol<=100 and vol>=0 :
 			return True
 

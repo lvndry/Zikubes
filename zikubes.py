@@ -1,6 +1,5 @@
 from sound.sound import *
 from gui.gui import *
-#from wifi.wifi import *
 
 app.display()
 
