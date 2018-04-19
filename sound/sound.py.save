@@ -2,7 +2,6 @@ from subprocess import call
 import random,os,math,json
 
 call(["omxplayer","-o","local"])
-
 ##########################################################
 
 lead=["Do","Mib","Fa","Sol","Sib","Do2"]
@@ -14,14 +13,8 @@ s_type=".wav"
 ###########################################################
 
 def play(sound,vol=100):
-	if type(sound) == int :
-		if sound == 1:
-			sound = random.choice(lead)
-		elif sound == 2:
-			sound = random.choice(drum)
-		else:
-			print ("invalid option")
-			return False
+	if type(sound) == list :
+		sound = random.choice(sound)
 
 	elif type(sound) == str :
 		pass
@@ -62,20 +55,15 @@ def __valideVol(vol):
 
 ###################################################################
 
-prev=[-1,-1]
 
-while True:
-	f=open("./result.txt","rb")
-	data=0
-	for data in f:
-		pass
-	if data:
-		data=str(data)[2:-2]
-		data=data.split(':')
-		data[-1]=data[-1].replace("\\","")
-		if data[0:2] != prev:
-			prev=data[0:2]
-			data.append(json.load(open('config.json'))['vol'+data[0]])
-			print ("data: ",data)
-			play(int(data[1]),int(data[2]))
-		f.close()
+f=open("./test.txt","rb")
+
+for data in f:
+	pass
+data=str(data)[2:-2]
+data=data.split(':')
+data[2]=data[2].replace("\\","")
+config=json.load(open('config.json'))
+print ("data: ",data)
+
+play(data[2],data[3])
