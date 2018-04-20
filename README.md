@@ -1,4 +1,12 @@
 # Zikubes
-Sound system and GUI for Zikubes (for Raspberry)
+Sound system and GUI for Zikubes (for Raspberry Pi3)
 
-(Run 'zikubes.sh' and enjoy (^-^)=b )
+Install all the requirements with
+```
+$ ./install.sh
+```
+
+To start Zikubes do
+```
+$ ./zikubes.sh
+```
