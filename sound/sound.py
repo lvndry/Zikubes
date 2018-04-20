@@ -70,12 +70,12 @@ while True:
 	for data in f:
 		pass
 	if data:
-		data=str(data)[2:-2]
-		data=data.split(':')
-		data[-1]=data[-1].replace("\\","")
+		data=str(data)[2:-2].split(':')
+		data = [int(i.replace("\\","")) for i in data]
 		if data[0:2] != prev:
 			prev=data[0:2]
-			data.append(json.load(open('config.json'))['vol'+data[0]])
+			data.append(json.load(open('config.json'))['vol'+str(data[0])])
 			print ("data: ",data)
-			play(int(data[1]),int(data[2]))
-		f.close()
+			play(data[1],data[2])
+	f.close()
+	continue

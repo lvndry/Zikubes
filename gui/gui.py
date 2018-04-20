@@ -7,9 +7,8 @@ master = 100
 bg_color = "#eeeeee"
 
 def END():
-    call(["killall","bash"])
-    call(["killall","python3"])
     call(["killall","zikubes.sh"])
+    call(["killall","python3"])
 
 def setConfig():
     c=open('config.json','w')
