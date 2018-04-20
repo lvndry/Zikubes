@@ -74,7 +74,7 @@ while True:
 		data = [int(i.replace("\\","")) for i in data]
 		if data[0:2] != prev:
 			prev=data[0:2]
-			data.append(json.load(open('config.json'))['vol'+str(data[0])])
+			data.append(json.load(open('config.json'))['vol'+str(data[1])])
 			print ("data: ",data)
 			play(data[1],data[2])
 	f.close()
