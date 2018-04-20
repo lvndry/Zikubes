@@ -1,5 +1,5 @@
 from subprocess import call
-import random,os,math,json
+import random, os, math, json
 
 call(["omxplayer","-o","local"])
 

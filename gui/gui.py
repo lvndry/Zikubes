@@ -1,5 +1,5 @@
 from guizero import App, Text, Slider, Box
-import time,json
+import time, json
 from subprocess import call
 
 conf = json.load(open('config.json'))
@@ -7,12 +7,12 @@ master = 100
 bg_color = "#eeeeee"
 
 def END():
-    call(["killall","zikubes.sh"])
-    call(["killall","python3"])
+    call(["killall", "zikubes.sh"])
+    call(["killall", "python3"])
 
 def setConfig():
-    c=open('config.json','w')
-    c.write('{"vol1":'+str(conf['vol1'])+',"vol2":'+str(conf['vol2'])+'}')
+    c=open('config.json', 'w')
+    c.write('{"vol1":' + str(conf['vol1']) + ',"vol2":' + str(conf['vol2'])+'}')
     c.close()
 
 def change_volume1():
